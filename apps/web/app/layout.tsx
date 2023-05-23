@@ -1,4 +1,7 @@
+'use client';
 import './global.css';
+
+import NavLayout from './layouts/nav-layout';
 
 export const metadata = {
   title: 'Welcome to web',
@@ -12,7 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <NavLayout>{children}</NavLayout>
+      </body>
     </html>
   );
 }
