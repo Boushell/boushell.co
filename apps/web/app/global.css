@@ -19,7 +19,7 @@ a {
 }
 
 a:hover {
-  color: blue;
+  color: var(--mantine-color-cyan-6);
 }
 
 h1,

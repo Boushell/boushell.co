@@ -1,6 +1,8 @@
 'use client';
 import './global.css';
 
+import { MantineProvider } from '@mantine/core';
+
 import NavLayout from './layouts/nav-layout';
 
 export default function RootLayout({
@@ -11,7 +13,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NavLayout>{children}</NavLayout>
+        <MantineProvider withGlobalStyles withNormalizeCSS withCSSVariables>
+          <NavLayout>{children}</NavLayout>
+        </MantineProvider>
       </body>
     </html>
   );

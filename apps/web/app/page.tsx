@@ -6,7 +6,7 @@ import css from './page.module.scss';
 export default function HomePage() {
   return (
     <>
-      <Box className={css.hero} bg="black" c="#ececec">
+      <Box className={css.hero} bg="cyan" c="#ececec">
         <h1>👋 Hey there!</h1>
         <p>
           My name is James Boushell and I'm a professional full-stack developer!

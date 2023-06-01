@@ -1,22 +1,30 @@
 'use client';
 import { ReactNode } from 'react';
 
-import { Badge, Flex, Grid, List, Text } from '@mantine/core';
+import { Avatar, Badge, Flex, Grid, List, Text } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 
 import css from './page.module.scss';
 
 export default function ResumePage() {
+  const smallScreen = useMediaQuery('(max-width: 768px)');
+
   return (
     <>
-      <Text size={40} weight="bold" className={css.name}>
-        James Boushell
-      </Text>
-      <Text size={20} weight="bolder" color="cyan" mb="xl">
-        Full Stack Developer
-      </Text>
+      <Flex mb="xl" align="center" bg="#eee" p="xl" className={css.header}>
+        <Avatar radius="xl" size="xl" src="/portrait.png" mr="xl" />
+        <Flex direction="column">
+          <Text size={40} weight="bold" className={css.name}>
+            James Boushell
+          </Text>
+          <Text size={20} weight="bolder" c="cyan">
+            Full Stack Developer
+          </Text>
+        </Flex>
+      </Flex>
 
       <Grid gutter="xl">
-        <Grid.Col span={3}>
+        <Grid.Col span={smallScreen ? 12 : 3}>
           <InfoBlock title="Basic Info">
             <InfoBlock subtitle="📞 Phone" content="(609) 414 2037" />
             <InfoBlock subtitle="📧 Email" content="james@boushell.co" />
@@ -28,7 +36,7 @@ export default function ResumePage() {
               date="2019-2021"
               content="Bachelor’s Computer Science"
             >
-              <Badge color="cyan" size="sm" w={75} variant="filled">
+              <Badge color="cyan" size="xs" w={75} variant="filled">
                 GPA: 3.7
               </Badge>
             </InfoBlock>
@@ -47,7 +55,7 @@ export default function ResumePage() {
             content="Typescript, JavaScript, Node.js, Python, C++, C#, Java, Spring, Express, MySQL, MongoDB, PostgreSQL, Firestore, Angular, React, React Native, AWS, GCP, Git, HTML, SCSS"
           />
         </Grid.Col>
-        <Grid.Col span={9}>
+        <Grid.Col span={smallScreen ? 12 : 9}>
           <InfoBlock title="📈 Professional Experience">
             <InfoBlock
               subtitle="SOLV Energy / Software Developer"
