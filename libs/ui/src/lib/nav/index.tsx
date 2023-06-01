@@ -20,7 +20,12 @@ export function Nav({ links }: HeaderResponsiveProps) {
       <Container>
         <Flex className={css.headerFlex}>
           <Link href="/">
-            <Text className={css.logoText}>Boushell</Text>
+            <Text className={css.logoText}>
+              <span role="img" aria-label="Jackolantern Emoji">
+                🎃
+              </span>{' '}
+              Boushell
+            </Text>
           </Link>
           <Group spacing="xl">{items}</Group>
         </Flex>

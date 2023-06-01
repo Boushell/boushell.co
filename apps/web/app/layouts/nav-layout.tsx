@@ -10,7 +10,7 @@ export default function NavLayout({ children }: { children: React.ReactNode }) {
           { link: '/resume', label: 'Resume' },
         ]}
       />
-      <Container mt="xl">{children}</Container>
+      <Container mt="2rem">{children}</Container>
     </>
   );
 }
