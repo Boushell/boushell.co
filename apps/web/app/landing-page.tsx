@@ -2,7 +2,7 @@
 import Link from 'next/link';
 
 import { Carousel } from '@mantine/carousel';
-import { Box, Grid, Image, List, Text } from '@mantine/core';
+import { Box, Grid, Image, List, Text, Tooltip } from '@mantine/core';
 
 import css from './landing-page.module.scss';
 
@@ -24,18 +24,25 @@ export function LandingPage({
             expertise, as well as present my resume in a relevant way!
           </Text>
         </Box>
-        <Box className={css.portfolioContainer}>
-          <Text weight="bold" className={css.portfolioTitle}>
-            Graphic Design Portfolio
-          </Text>
-          <Carousel mx="auto" withIndicators className={css.carousel}>
-            {portfolioImages.map((imageUrl) => (
-              <Carousel.Slide key={imageUrl}>
-                <Image src={imageUrl} alt="Portfolio image" />
-              </Carousel.Slide>
-            ))}
-          </Carousel>
-        </Box>
+        <Tooltip
+          label="Images fetched using the Dribbble REST API"
+          position="bottom"
+          color="cyan"
+        >
+          <Box className={css.portfolioContainer}>
+            <Text weight="bold" className={css.portfolioTitle}>
+              Graphic Design Portfolio
+            </Text>
+
+            <Carousel mx="auto" withIndicators className={css.carousel}>
+              {portfolioImages.map((imageUrl) => (
+                <Carousel.Slide key={imageUrl}>
+                  <Image src={imageUrl} alt="Portfolio image" />
+                </Carousel.Slide>
+              ))}
+            </Carousel>
+          </Box>
+        </Tooltip>
       </Grid.Col>
       <Grid.Col span={4}>
         <Box className={css.hero} bg="#ececec">
