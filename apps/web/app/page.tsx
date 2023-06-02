@@ -62,7 +62,7 @@ async function getPortfolioImageURLs(): Promise<string[]> {
   try {
     const response = await axios.get(url, {
       headers: {
-        Authorization: `Bearer 10c72b008f19e2b48080fb6c1ec429db0ab20a71627d01bc60bd8471f28333cd`,
+        Authorization: `Bearer ${process.env.DRIBBBLE_API_KEY}`,
       },
     });
 
