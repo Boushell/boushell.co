@@ -1,30 +1,77 @@
 'use client';
-import { Box } from '@mantine/core';
+import { useEffect, useState } from 'react';
+
+import axios from 'axios';
+import Link from 'next/link';
+
+import { Box, Grid, List, Text } from '@mantine/core';
 
 import css from './page.module.scss';
 
-export default function HomePage() {
-  return (
-    <>
-      <Box className={css.hero} bg="cyan" c="#ececec">
-        <h1>👋 Hey there!</h1>
-        <p>
-          My name is James Boushell and I'm a professional full-stack developer!
-          I've created and maintain this website to showcase some of the things
-          that I am passionate about & to showcase my resume in a more topical
-          manner.
-        </p>
-      </Box>
+export default async function HomePage() {
+  const [portfolioImages, setPortfolioImages] = useState<string[]>([]);
+  useEffect(() => {
+    async function fetchPortfolioImages() {
+      setPortfolioImages(await getPortfolioImageURLs());
+    }
 
-      <Box className={css.hero} bg="#ececec">
-        <h2>🤓 Fun facts about this website</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus
-          ab quibusdam porro nihil. Alias eum assumenda praesentium, in illo
-          totam at? Quidem atque culpa nisi ab dolore adipisci veritatis
-          expedita?
-        </p>
-      </Box>
-    </>
+    fetchPortfolioImages();
+  }, [portfolioImages]);
+  return (
+    <Grid>
+      <Grid.Col span={8}>
+        <Box className={css.hero} bg="cyan" c="#ececec">
+          <Text weight="bold" size={24} mb="md">
+            👋 Hey there!
+          </Text>
+          <Text size={18}>
+            I'm James Boushell, a professional full-stack developer. I've
+            created and maintain this website to showcase my passion and
+            expertise, as well as present my resume in a relevant way.
+          </Text>
+        </Box>
+        {portfolioImages}
+      </Grid.Col>
+      <Grid.Col span={4}>
+        <Box className={css.hero} bg="#ececec">
+          <Text weight="bold" size="lg" mb="md">
+            🧑‍💻 Website Stack
+          </Text>
+          <Text weight="bold">Front End</Text>
+          <List listStyleType="none">
+            <List.Item>NextJS / React</List.Item>
+            <List.Item>Mantine UI</List.Item>
+            <List.Item>Typescript</List.Item>
+            <List.Item>SCSS</List.Item>
+          </List>
+          <br />
+          <Text weight="bold">Cloud Platform</Text>
+          <Text>Vercel</Text>
+          <br />
+          <Text weight="bold">Version Control</Text>
+          <Link href="https://github.com/Boushell/boushell.co">GitHub</Link>
+        </Box>
+      </Grid.Col>
+    </Grid>
   );
+}
+
+async function getPortfolioImageURLs(): Promise<string[]> {
+  const url = `https://api.dribbble.com/v2/users/boushell/shots`;
+
+  try {
+    const response = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer 10c72b008f19e2b48080fb6c1ec429db0ab20a71627d01bc60bd8471f28333cd`,
+      },
+    });
+
+    const shots = response.data;
+    const imageUrls = shots.map((shot: any) => shot.images.normal);
+
+    return imageUrls;
+  } catch (error) {
+    console.error('Error retrieving portfolio images:', error);
+    return [];
+  }
 }
