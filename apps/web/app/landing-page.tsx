@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { Carousel } from '@mantine/carousel';
 import { Box, Grid, Image, List, Text, Tooltip } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 
 import css from './landing-page.module.scss';
 
@@ -11,9 +12,11 @@ export function LandingPage({
 }: {
   portfolioImages: string[];
 }) {
+  const smallScreen = useMediaQuery('(max-width: 768px)');
+
   return (
     <Grid>
-      <Grid.Col span={8}>
+      <Grid.Col span={smallScreen ? 12 : 8}>
         <Box className={css.hero} bg="cyan" c="#ececec">
           <Text weight="bold" size={24} mb="md">
             👋 Hey there!
@@ -44,7 +47,7 @@ export function LandingPage({
           </Box>
         </Tooltip>
       </Grid.Col>
-      <Grid.Col span={4}>
+      <Grid.Col span={smallScreen ? 12 : 4}>
         <Box className={css.hero} bg="#ececec">
           <Text weight="bold" size="lg" mb="md">
             🧑‍💻 Website Stack
