@@ -17,7 +17,7 @@ export function LandingPage({
   return (
     <Grid>
       <Grid.Col span={smallScreen ? 12 : 8}>
-        <Box className={css.hero} bg="cyan" c="#ececec">
+        <Box className={css.card} bg="cyan" c="#ececec">
           <Text weight="bold" size={24} mb="md">
             👋 Hey there!
           </Text>
@@ -48,7 +48,7 @@ export function LandingPage({
         </Tooltip>
       </Grid.Col>
       <Grid.Col span={smallScreen ? 12 : 4}>
-        <Box className={css.hero} bg="#ececec">
+        <Box className={css.card} bg="#fff">
           <Text weight="bold" size="lg" mb="md">
             🧑‍💻 Website Stack
           </Text>
