@@ -67,10 +67,11 @@ export default function ContactPage() {
             color="cyan"
             size="xl"
             fullWidth
-            disabled={sent}
+            disabled
             onClick={async () => await sendMessage()}
           >
-            {sent ? 'Message Sent!' : 'Send'}
+            {/* {sent ? 'Message Sent!' : 'Send'} */}
+            Out of Order
           </Button>
         </Flex>
       </Flex>
