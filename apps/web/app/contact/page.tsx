@@ -2,11 +2,8 @@
 import { useState } from 'react';
 
 import { Button, Flex, Text, Textarea, TextInput } from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
 
 export default function ContactPage() {
-  const smallScreen = useMediaQuery('(max-width: 768px)');
-
   const [message, setMessage] = useState('');
   const [from, setFrom] = useState('');
   const [sent, setSent] = useState(false);
