@@ -19,7 +19,7 @@ export function LandingPage({
       <Grid.Col span={smallScreen ? 12 : 8}>
         <Box className={css.card} bg="cyan" c="#ececec">
           <Text weight="bold" size={24} mb="md">
-            👋 Hey there!
+            Hey there!
           </Text>
           <Text size={18}>
             I'm James Boushell, a professional full-stack developer. I've
@@ -50,7 +50,7 @@ export function LandingPage({
       <Grid.Col span={smallScreen ? 12 : 4}>
         <Box className={css.card} bg="#fff">
           <Text weight="bold" size="lg" mb="md">
-            🧑‍💻 Website Stack
+            Site Stack
           </Text>
           <Text weight="bold">Front End</Text>
           <List listStyleType="none">

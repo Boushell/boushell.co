@@ -11,7 +11,7 @@ export default function ResumePage() {
 
   return (
     <>
-      <Flex mb="xl" align="center" bg="#eee" p="xl" className={css.header}>
+      <Flex mb="xl" align="center">
         <Avatar radius="xl" size="xl" src="/portrait.png" mr="xl" />
         <Flex direction="column">
           <Text size={40} weight="bold" className={css.name}>

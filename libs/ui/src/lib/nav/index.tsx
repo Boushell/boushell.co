@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Button, Container, Flex, Group, Text } from '@mantine/core';
+import { Button, Container, Flex, Group, Image } from '@mantine/core';
 
 import css from './index.module.scss';
 
@@ -22,7 +22,7 @@ export function Nav({ links }: HeaderResponsiveProps) {
       <Flex justify="left" align="center" className={css.headerRoot}>
         <Flex className={css.headerFlex}>
           <Link href="/">
-            <Text className={css.logoText} size="xl">
+            {/* <Text className={css.logoText} size="xl">
               <span
                 role="img"
                 aria-label="Jackolantern Emoji"
@@ -31,7 +31,8 @@ export function Nav({ links }: HeaderResponsiveProps) {
                 🎃
               </span>
               Boushell
-            </Text>
+            </Text> */}
+            <Image src="/logo.svg" width={200} mr={20} />
           </Link>
           <Group spacing="xs">{items}</Group>
         </Flex>
